@@ -8,7 +8,7 @@ function Page(props) {
   function paginationHadler(event) {
     dispatch({
       type: GET_PAGINATION,
-      payload: event.target.name
+      payload: +event.target.name
     })
   }
 

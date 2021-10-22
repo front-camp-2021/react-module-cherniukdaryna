@@ -7,6 +7,7 @@ const initialPaginationState = {
 
 export const paginationReducer = (state = initialPaginationState, action) => {
   switch (action.type) {
+    
     case GET_PAGINATION: {
       return {
         ...state,
@@ -15,7 +16,7 @@ export const paginationReducer = (state = initialPaginationState, action) => {
     }
 
     case TO_NEXT: {
-      return state.currentPage == 20 ? 
+      return state.currentPage === 20 ? 
       { ...state,
         currentPage: 20
       }
@@ -26,7 +27,7 @@ export const paginationReducer = (state = initialPaginationState, action) => {
     }
 
     case TO_PREV: {
-      return state.currentPage == 1 ? 
+      return state.currentPage === 1 ? 
       { ...state,
         currentPage: 1
       }
