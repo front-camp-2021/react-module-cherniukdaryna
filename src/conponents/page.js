@@ -17,7 +17,7 @@ function Page(props) {
       <a
         className="links-list__link"
         id={active}
-        href="/#"
+        href="/#top"
         name={page}
         onClick={paginationHadler}
       >

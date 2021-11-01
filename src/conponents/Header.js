@@ -19,7 +19,7 @@ function Header() {
   
         <img className="top-navigation__arrow" src={arrow} alt=""/>
   
-        <a className="top-navigation__link" href="/#">Electronics</a> 
+        <a className="top-navigation__link" href="http://localhost:3000/">Electronics</a> 
     </nav>
       </>
     );

@@ -1,7 +1,9 @@
 import { GET_CARDS } from "../actions/cardsActions";
+import { CHANGE_FAVORITE_STATUS } from "../actions/favoriteActions";
 
 const initialState = {
-  cardsList: []
+  cardsList: [],
+  isFavorite: []
 }
 
 export const cardsReducer = (state = initialState, action) => {
@@ -11,6 +13,18 @@ export const cardsReducer = (state = initialState, action) => {
         ...state,
         cardsList: action.payload
       }
+    }
+
+    case CHANGE_FAVORITE_STATUS: {
+      return state.isFavorite.includes(action.payload)
+        ? {
+          ...state,
+          isFavorite: state.isFavorite.filter(value => value !== action.payload)
+        } :
+        {
+          ...state,
+          isFavorite: [...state.isFavorite, action.payload]
+        }
     }
 
     default: {
