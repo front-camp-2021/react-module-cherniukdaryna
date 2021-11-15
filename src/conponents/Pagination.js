@@ -5,7 +5,7 @@ import arrowForward from './img/2931159_arrow_forward_right_move_navigation_icon
 import arrowBack from './img/2931162_arrow_back_left_direction_move_icon.svg';
 import Page from './page';
 
-function Pagination({ cardsType }) {
+function Pagination() {
   const pages = useSelector(state => state.pagination);
   const dispatch = useDispatch();
 

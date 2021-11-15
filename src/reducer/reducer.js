@@ -3,6 +3,7 @@ import { cardsReducer } from "./cardsReducer";
 import { activeFiltersReducer } from "./checkboxReducer";
 import { brandFiltersReducer, categoryFiltersReducer } from "./filterReducer";
 import { paginationReducer } from "./paginationReducer";
+import { priceReducer } from "./priceReducer";
 import { searchReducer } from "./searchReducer";
 
 export const globalReducer = combineReducers({
@@ -12,4 +13,5 @@ export const globalReducer = combineReducers({
   activeFilters: activeFiltersReducer,
   pagination: paginationReducer,
   search: searchReducer,
+  price: priceReducer
 })

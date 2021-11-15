@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Header />
       <MiniSideBar />
-
+      
       <div className="all-content">
         <Switch>
           <Route exact path="/">

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { CLEAR_FILTER } from '../actions/checkboxAction';
+import DoubleSlider from './DoubleSlider';
 import FiltersList from './FiltersList';
 import arrowBack from './img/4829860_arrow_back_left_icon.svg'
 
@@ -10,7 +11,7 @@ function SideBar() {
     dispatch({
       type: CLEAR_FILTER
     })
-  } 
+  }
 
   return (
     <section className="filters-default">
@@ -23,6 +24,8 @@ function SideBar() {
       </div>
 
       <div className="filters-navigation">
+        <p className="second-filtres-list__name--bold"><b>Price</b></p><br/>
+        <DoubleSlider /><br/>
         <FiltersList />
       </div>
       <button

@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllCards, getCards } from '../actions/cardsActions';
-import { FAVORITES_CARDS_LIST } from '../actions/favoriteActions';
-import { cardsSelector } from '../selectors/cardSelectors';
+import { getAllCards } from '../actions/cardsActions';
 import Card from "./Card";
 
 function CardsList({ cardsType }) {
@@ -10,19 +8,10 @@ function CardsList({ cardsType }) {
   const cardsList = useSelector(state => state.cards.cardsList);
   const pages = useSelector(state => state.pagination);
   const inputValue = useSelector(state => state.search.searchInput);
-  const fav = useSelector(state => state.cards.isFavorite);
-
-  console.log(fav)
+  const favorite = useSelector(state => state.cards.isFavorite);
+  const price = useSelector(state => state.price.price);
 
   const filterFn = (value, [filterType, filterValues]) => {
-    // switch (filterType) {
-    //   case 'brand':
-    //     return filterValues.includes(value['brand'])
-    //   case 'category':
-    //     return filterValues.includes(value['category'])
-    //   default:
-    //     break;
-    // }
     return filterValues.includes(value[filterType])
   }
 
@@ -36,11 +25,12 @@ function CardsList({ cardsType }) {
     dispatch(getAllCards());
   }, [])
 
-  let favoriteList = cardsList.filter(card => fav.includes(card.id));
+  let favoriteList = cardsList.filter(card => favorite.includes(card.id));
   let resultCardsList = cardsType === 'favorites'
     ? favoriteList
     : filteredCardsList
       .slice(pages.currentPage * 9 - 9, pages.currentPage * 9)
+      .filter(item => item.price >= price[0] && item.price <= price[1])
       .filter(item => item.title.toLowerCase().includes(inputValue.toLowerCase(), 0));
 
   return (

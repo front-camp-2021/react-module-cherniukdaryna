@@ -42,7 +42,8 @@ function Filter(props) {
         />
         <label
           className="second-filtres-list__checkbox-input-label"
-          htmlFor={filtersListItem}>
+          //htmlFor={filtersListItem}
+        >
           {filtersListItem}
         </label>
         <br />
